@@ -12,4 +12,4 @@ Setup Command Prompt desktop shortcut
 	* Target:
 		* <code>%windir%\system32\cmd.exe /K C:\doskey.cmd</code>
 	* Start in:
-		*<code>C:\git</code>
+		* <code>C:\git</code>
