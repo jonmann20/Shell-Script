@@ -3,10 +3,10 @@ Set-Location C:\git
 Clear-Host
 
 function prompt {
-	$host.ui.rawui.WindowTitle = $(Get-Location)
-  
   #$curDir = Split-Path $(Get-Location)  -Leaf
   $fullPath = "$(Get-Location)".Replace("\","/")
+  $host.ui.rawui.WindowTitle = $fullPath
+
   $curBranch = ""
   $doubleArrow = [char]0xBB;
   
