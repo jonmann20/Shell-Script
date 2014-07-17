@@ -3,7 +3,7 @@ Set-Location C:\git
 Clear-Host
 
 function prompt {
- 	#$curDir = Split-Path $(Get-Location)  -Leaf
+	#$curDir = Split-Path $(Get-Location)  -Leaf
  	$fullPath = "$(Get-Location)".Replace("\","/")
  	$host.ui.rawui.WindowTitle = $fullPath
 
