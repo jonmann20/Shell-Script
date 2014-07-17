@@ -3,28 +3,28 @@ Set-Location C:\git
 Clear-Host
 
 function prompt {
-  #$curDir = Split-Path $(Get-Location)  -Leaf
-  $fullPath = "$(Get-Location)".Replace("\","/")
-  $host.ui.rawui.WindowTitle = $fullPath
+ 	#$curDir = Split-Path $(Get-Location)  -Leaf
+ 	$fullPath = "$(Get-Location)".Replace("\","/")
+ 	$host.ui.rawui.WindowTitle = $fullPath
 
-  $curBranch = ""
-  $doubleArrow = [char]0xBB;
+ 	$curBranch = ""
+ 	$doubleArrow = [char]0xBB;
   
-  if(Test-Path .git) {
-    $curBranch += " ("
+ 	if(Test-Path .git) {
+    	$curBranch += " ("
 
-    git branch | foreach {
-      if ($_ -match "^\*(.*)"){
-        $curBranch += $matches[1].trimstart(" ")
-      }
-    }
+   		git branch | foreach {
+    		if ($_ -match "^\*(.*)"){
+        		$curBranch += $matches[1].trimstart(" ")
+      		}
+    	}
 
-    $curBranch += ")"
-  }
+    	$curBranch += ")"
+	}
 
-  Write-Host $fullPath -nonewline -foregroundcolor DarkCyan
-  Write-Host $curBranch -nonewline -foregroundcolor Gray
-  Write-Host ""
-  Write-Host $doubleArrow -nonewline -foregroundcolor DarkCyan
-  return " " 
+  	Write-Host $fullPath -nonewline -foregroundcolor DarkCyan
+  	Write-Host $curBranch -nonewline -foregroundcolor Gray
+  	Write-Host ""
+  	Write-Host $doubleArrow -nonewline -foregroundcolor DarkCyan
+  	return " " 
 }
