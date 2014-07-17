@@ -1,5 +1,5 @@
 Set-Location C:\git
-#New-Alias acp git add -A && git commit -m "$1" && git push    #untested
+#New-Alias acp git add -A && git commit -m "$1" && git push   #untested
 Clear-Host
 
 function prompt {
