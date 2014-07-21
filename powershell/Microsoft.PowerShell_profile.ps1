@@ -39,3 +39,7 @@ function pgb {
 function pgr {
   phonegap run android
 }
+
+function subl {
+  cmd /c "C:\Program Files\Sublime Text 3\sublime_text.exe" $args
+}
