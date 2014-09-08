@@ -12,6 +12,7 @@ PS1="${LIGHT_GRAY}\W${LIGHT_CYAN}\$(__git_ps1)${LIGHT_GRAY}\n» "
 #---------- Aliases ----------#
 # not working
 alias acp=git add -A && git commit -m "$@" && git push
+alias st=git status -s
 
 #---------- Startup commands ----------#
 cd ~/git
