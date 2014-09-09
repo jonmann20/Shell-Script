@@ -4,9 +4,16 @@ LIGHT_CYAN="\[\033[1;36m\]"
 
 PS1="${LIGHT_GRAY}\w${LIGHT_CYAN}\$(__git_ps1)${LIGHT_GRAY}\n» "
 
-#---------- Aliases ----------#
+
+#---------- Aliases/Functions ----------#
 alias st='git status -s'
-alias acp='git add -A && git commit -m "$@" && git push'  # TODO: not tested
+
+acp() {
+	git add -A
+	git commit -m "$@"
+	git push
+}
+
 
 #---------- Startup commands ----------#
 cd ~/git
