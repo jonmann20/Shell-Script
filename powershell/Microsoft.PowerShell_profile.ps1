@@ -37,6 +37,14 @@ function acp {
   cmd /c git add -A; git commit -m "$args"; git push
 }
 
+function st {
+  git status -s
+}
+
+function ch {
+  git checkout $args
+}
+
 function pgb {
   phonegap build android
 }
