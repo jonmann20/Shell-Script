@@ -1,5 +1,10 @@
+
+# https://github.com/tkellogg/Jump-Location
+Import-Module "C:\Users\jon\Documents\WindowsPowerShell\Jump-Location\Jump.Location.psd1"
+
 Set-Location C:\git
 Clear-Host
+dir
 
 function prompt {
   #$curDir = Split-Path $(Get-Location)  -Leaf
