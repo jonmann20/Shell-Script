@@ -1,9 +1,11 @@
 #---------- Prompt ----------#
 LIGHT_GRAY="\[\033[0;37m\]"
-LIGHT_CYAN="\[\033[1;36m\]"
+DARK_GRAY="\[\033[1;30m\]"
+CYAN="\[\033[0;36m\]"
+#YELLOW="\[\033[1;33m\]"
+#LIGHT_CYAN="\[\033[1;36m\]"
 
-PS1="${LIGHT_GRAY}\w${LIGHT_CYAN}\$(__git_ps1)${LIGHT_GRAY}\n» "
-
+PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
 alias st='git status -s'
@@ -15,7 +17,6 @@ acp() {
 	git commit -m "$@"
 	git push
 }
-
 
 #---------- Startup commands ----------#
 cd ~/git
