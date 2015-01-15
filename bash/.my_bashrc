@@ -8,14 +8,22 @@ CYAN="\[\033[0;36m\]"
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
+alias cls='clear'
 alias st='git status -s'
 alias ch='git checkout $1'
-alias cls='clear'
+alias lg='git log --graph --oneline --decorate --date=relative --all'
 
 acp() {
 	git add -A
 	git commit -m "$@"
 	git push
+}
+
+vivify() {
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	sudo update-manager
 }
 
 #---------- Startup commands ----------#
