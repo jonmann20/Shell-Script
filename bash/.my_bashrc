@@ -41,8 +41,8 @@ lj() {
 	LIGHT_BLUE='\e[1;34m'
 	RESET='\e[m' # No Color
 
-	# sort by last modified
-	for file in $(ls -t)
+	# sort by last modified (reversed)
+	for file in $(ls -tr)
 	do
 		if [ -d $file ]			# directory
 		then
