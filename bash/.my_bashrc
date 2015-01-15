@@ -9,9 +9,18 @@ PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
 alias cls='clear'
+alias .='pwd'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias sleep='sudo pm-suspend'
+alias reboot='sudo /sbin/reboot'
+alias shutdown='sudo /sbin/shutdown'
+
 alias st='git status -s'
 alias ch='git checkout $1'
-alias lg='git log --graph --oneline --decorate --date=relative --all'
+alias lg='git log --graph --oneline'
 
 acp() {
 	git add -A
@@ -20,7 +29,7 @@ acp() {
 }
 
 vivify() {
-	sudo apt-get update
+	sudo apt-get update #--yes
 	sudo apt-get upgrade
 	sudo apt-get dist-upgrade
 	sudo update-manager
