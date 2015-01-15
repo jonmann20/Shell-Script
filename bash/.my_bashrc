@@ -15,8 +15,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias sleep='sudo pm-suspend'
-alias reboot='sudo /sbin/reboot'
-alias shutdown='sudo /sbin/shutdown'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 
 alias st='git status -s'
 alias ch='git checkout $1'
@@ -38,4 +38,4 @@ vivify() {
 #---------- Startup commands ----------#
 cd ~/git
 clear
-ls
+ls -1t
