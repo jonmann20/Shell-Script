@@ -35,7 +35,36 @@ vivify() {
 	sudo update-manager
 }
 
+# Custom list command
+lj() {
+	LIGHT_GRAY='\e[1;37m'
+	LIGHT_BLUE='\e[1;34m'
+	RESET='\e[m' # No Color
+
+	# sort by last modified
+	for file in $(ls -t)
+	do
+		if [ -d $file ]			# directory
+		then
+			filename="${LIGHT_BLUE}$file${RESET}"
+		else
+			filename="${LIGHT_GRAY}$file${RESET}"
+		fi
+
+		# NOTE: was adding an newline when combined
+		last_modified=$(date -d "$(stat -c '%z' $file)" +"%a")
+		lm2=$(date -d "$(stat -c '%z' $file)" +"%d")
+		lm3=$(date -d "$(stat -c '%z' $file)" +"%b")
+		lm4=$(date -d "$(stat -c '%z' $file)" +"%I:%M")
+		lm5=$(date -d "$(stat -c '%z' $file)" +"%p")
+
+		size=$(du -sh $file | cut -f1)
+
+		printf "%-34b %-3s %-2s %-6s %-4s %-8s %s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
+	done
+}
+
 #---------- Startup commands ----------#
 cd ~/git
 clear
-ls -1t
+lj
