@@ -41,6 +41,8 @@ lj() {
 	LIGHT_BLUE='\e[1;34m'
 	RESET='\e[m' # No Color
 
+	buff=''
+
 	# sort by last modified (reversed)
 	for file in $(ls -tr)
 	do
@@ -60,8 +62,11 @@ lj() {
 
 		size=$(du -sh $file | cut -f1)
 
-		printf "%-34b %-3s %-2s %-6s %-4s %-8s %s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
+		printf -v result "%-34b %-3s %-2s %-6s %-4s %-8s %s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
+		buff+=$result
 	done
+
+	echo -e "$buff\c"
 }
 
 #---------- Startup commands ----------#
