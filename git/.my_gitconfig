@@ -1,0 +1,7 @@
+[push]
+	default = simple
+[user]
+	email = jonwiedmann@gmail.com
+	name = Jon Wiedmann
+[credential]
+	helper = store
