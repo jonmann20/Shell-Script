@@ -8,6 +8,8 @@ CYAN="\[\033[0;36m\]"
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
+#-- System
+alias rebash='source ~/.bashrc'
 alias cls='clear'
 alias .='pwd'
 alias ..='cd ..'
@@ -17,18 +19,6 @@ alias .....='cd ../../../..'
 alias sleep='sudo pm-suspend'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
-
-alias st='git status -s'
-alias ch='git checkout $1'
-alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
-
-alias mend='git commit --amend -m "$@"'
-
-acp() {
-	git add -A
-	git commit -m "$@"
-	git push
-}
 
 vivify() {
 	sudo apt-get update #--yes
@@ -69,6 +59,23 @@ lj() {
 	done
 
 	echo -e "$buff\c"
+}
+
+#-- C/C++
+# gnu89 for EECS 370
+alias c='gcc -std=gnu89 -fdiagnostics-color -Wall -Wextra $@'
+alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
+
+#-- Git
+alias st='git status -s'
+alias ch='git checkout $1'
+alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias mend='git commit --amend -m "$@"'
+
+acp() {
+	git add -A
+	git commit -m "$@"
+	git push
 }
 
 #---------- Startup commands ----------#
