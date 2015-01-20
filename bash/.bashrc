@@ -21,9 +21,9 @@ alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 
 vivify() {
-	sudo apt-get update #--yes
-	sudo apt-get upgrade
-	sudo apt-get dist-upgrade
+	sudo apt-get update --yes
+	sudo apt-get upgrade --yes
+	sudo apt-get dist-upgrade --yes
 	sudo update-manager
 }
 
