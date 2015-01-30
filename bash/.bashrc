@@ -19,6 +19,7 @@ alias .....='cd ../../../..'
 alias sleep='sudo pm-suspend'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
+alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
 
 vivify() {
 	sudo apt-get update --yes
