@@ -10,7 +10,8 @@ PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 #---------- Aliases/Functions ----------#
 #-- System
 alias rebash='source ~/.bashrc'
-alias cls='clear'
+alias cls='clear'				# adds new lines
+alias clr='printf "\ec"'		# actually clears screen
 alias .='pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
