@@ -9,7 +9,6 @@ PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
 #-- System
-alias rebash='source ~/.bashrc'
 alias cls='clear'				# adds new lines
 alias clr='printf "\ec"'		# actually clears screen
 alias .='pwd'
@@ -21,6 +20,12 @@ alias sleep='sudo pm-suspend'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
+
+rebash() {
+	source ~/.bashrc
+	cd -
+	clr
+}
 
 vivify() {
 	sudo apt-get update --yes
@@ -73,6 +78,7 @@ alias st='git status -s'
 alias ch='git checkout $1'
 alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias mend='git commit --amend -m "$@"'
+alias ac='git add -A; git commit -m "$@"'
 
 acp() {
 	git add -A
@@ -82,5 +88,5 @@ acp() {
 
 #---------- Startup commands ----------#
 cd ~/git
-clear
+clr
 lj
