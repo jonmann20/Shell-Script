@@ -87,6 +87,13 @@ acp() {
 	git push
 }
 
+acpp() {
+	git add -A
+	git commit -m "$@"
+	git pull
+	git push
+}
+
 #-- Sublime
 # List sublime projects
 lsp() {
