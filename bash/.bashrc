@@ -71,7 +71,19 @@ lj() {
 
 #-- C/C++
 # gnu89 for EECS 370
-alias c='gcc -std=gnu89 -fdiagnostics-color -Wall -Wextra $@'
+# std=c11 for normal
+
+# Compile and run a single c file
+c() {
+	#if [ "$2" = "err" ]; then
+	#	flags="-Wall -Wextra"
+	#fi
+
+	file=$1
+	rm $file
+	gcc -std=gnu89 -fdiagnostics-color -Wall -Wextra ${file}.c -o $file
+	./${file}
+}
 alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
 
 #-- Git
