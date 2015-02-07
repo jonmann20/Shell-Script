@@ -20,6 +20,7 @@ alias sleep='sudo pm-suspend'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
+alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
 
 rebash() {
 	source ~/.bashrc
@@ -84,6 +85,22 @@ acp() {
 	git add -A
 	git commit -m "$@"
 	git push
+}
+
+#-- Sublime
+# List sublime projects
+lsp() {
+	for file in ~/Documents/Sublime/*.sublime-project; do
+		filename=$(basename "$file")
+		filename="${filename%.*}"
+		echo "$filename"
+	done
+}
+
+# Open/create a sublime project
+sp() {
+	file=$1
+	subl --project ~/Documents/Sublime/${file}.sublime-project
 }
 
 #---------- Startup commands ----------#
