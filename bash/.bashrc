@@ -55,18 +55,18 @@ lj() {
 
 		# NOTE: was adding an newline when combined
 		last_modified=$(date -d "$(stat -c '%z' $file)" +"%a")
-		lm2=$(date -d "$(stat -c '%z' $file)" +"%d")
+		lm2=$(date -d "$(stat -c '%z' $file)" +"%e")
 		lm3=$(date -d "$(stat -c '%z' $file)" +"%b")
-		lm4=$(date -d "$(stat -c '%z' $file)" +"%I:%M")
-		lm5=$(date -d "$(stat -c '%z' $file)" +"%p")
+		lm4=$(date -d "$(stat -c '%z' $file)" +"%l:%M")
+		lm5=$(date -d "$(stat -c '%z' $file)" +"%P")
 
 		size=$(du -sh $file | cut -f1)
 
-		printf -v result "%-34b %-3s %-2s %-6s %-4s %-8s %s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
+		printf -v result "%-34b %-3s %2s %-6s %5s %-5s %6s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
 		buff+=$result
 	done
-
-	echo -e "$buff\c"
+	totalSize=$(du -sh . | cut -f1)
+	echo -e "total size: $totalSize\n$buff\c"
 }
 
 #-- C/C++
