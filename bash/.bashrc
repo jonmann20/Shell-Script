@@ -28,6 +28,8 @@ rebash() {
 	clr
 }
 
+alias bashrc='subl ~/.Shell-Script/bash/.bashrc'
+
 vivify() {
 	sudo apt-get update --yes
 	sudo apt-get upgrade --yes
@@ -70,7 +72,7 @@ lj() {
 }
 
 #-- C/C++
-# gnu89 for EECS 370
+# std=c99 for EECS 370
 # std=c11 for normal
 
 # Compile and run a single c file
@@ -80,9 +82,13 @@ c() {
 	#fi
 
 	file=$1
-	rm $file
-	gcc -std=gnu89 -fdiagnostics-color -Wall -Wextra ${file}.c -o $file
-	./${file}
+	#rm $file
+	gcc -std=c99 -lm -fdiagnostics-color -Wall -Wextra ${file}.c -o $file
+
+	if [ "$2" ]; then
+		inFile=$2
+		./${file} ${inFile}.mc
+	fi
 }
 alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
 
@@ -104,6 +110,45 @@ acpp() {
 	git commit -m "$@"
 	git pull
 	git push
+}
+
+#-- Ruby on Rails
+# List Ruby on Rails commands
+rr() {
+	echo "All commands use bundle exec"
+	echo "d: database - rake db:drop, create, migrate, seed"
+	echo "s: server - rails server"
+	echo "c: console - rails console"
+	echo "t: test - rspec"
+}
+
+rr.d() {
+	echo "Dropping db"
+	bundle exec rake db:drop
+
+	echo "Creating db"
+	bundle exec rake db:create
+
+	echo "Migrating db"
+	bundle exec rake db:migrate
+
+	echo "Seeding db"
+	bundle exec rake db:seed
+}
+
+rr.s() {
+	echo "Running web server"
+	bundle exec rails server
+}
+
+rr.c() {
+	echo "Running rails console"
+	bundle exec rails console
+}
+
+rr.t() {
+	echo "Running tests"
+	bundle exec rspec
 }
 
 #-- Sublime
