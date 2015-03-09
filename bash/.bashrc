@@ -92,24 +92,47 @@ c() {
 }
 alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
 
-#-- Git
-alias st='git status -s'
-alias ch='git checkout $1'
-alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
-alias mend='git commit --amend -m "$@"'
-alias ac='git add -A; git commit -m "$@"'
+initC() {
+	if [ "$1" ]; then
+		file=$1".c"
+	else
+		file="main.c"
+	fi
 
-acp() {
-	git add -A
-	git commit -m "$@"
-	git push
+	if [ -e $file ]; then
+		echo "File $file already exists"
+	else
+		cat >> $file <<EOF
+#include <stdio.h>
+
+int main(int argc, char* argv[]) {
+	printf("Hello World\n");
+	return 0;
+}
+EOF
+	fi
 }
 
-acpp() {
-	git add -A
-	git commit -m "$@"
-	git pull
-	git push
+initCpp() {
+	if [ "$1" ]; then
+		file=$1".cpp"
+	else
+		file="main.cpp"
+	fi
+
+	if [ -e $file ]; then
+		echo "File $file already exists"
+	else
+		cat >> $file <<EOF
+#include <iostream>
+using namespace std;
+
+int main(int argc, char* argv[]) {
+	cout << "Hello World" << endl;
+	return 0;
+}
+EOF
+	fi
 }
 
 #-- Ruby on Rails
@@ -149,6 +172,26 @@ rr.c() {
 rr.t() {
 	echo "Running tests"
 	bundle exec rspec
+}
+
+#-- Git
+alias st='git status -s'
+alias ch='git checkout $1'
+alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias mend='git commit --amend -m "$@"'
+alias ac='git add -A; git commit -m "$@"'
+
+acp() {
+	git add -A
+	git commit -m "$@"
+	git push
+}
+
+acpp() {
+	git add -A
+	git commit -m "$@"
+	git pull
+	git push
 }
 
 #-- Sublime
