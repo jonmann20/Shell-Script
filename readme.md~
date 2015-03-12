@@ -8,4 +8,4 @@ Installation
 
 1. `git clone https://github.com/jonmann20/Shell-Script.git ~/.Shell-Script`
 2. bashrc
-	* `sed -i '$ a\source ~/.Shell-Script/bash/.bashrc' ~/.bashrc`
+	* `sed -i '$ a\source ~/.Shell-Script/bash/.my_bashrc' ~/.bashrc`
