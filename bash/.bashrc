@@ -210,6 +210,11 @@ sp() {
 	subl --project ~/Documents/Sublime/${file}.sublime-project
 }
 
+#-- EECS 370
+alias lca='~/git/eecs370/lc2k/bin/assemble'
+alias lcs='~/git/eecs370/lc2k/bin/simulate'
+alias lcf='~/git/eecs370/lc2k/bin/fsm'
+
 #---------- Startup commands ----------#
 cd ~/git
 clr
