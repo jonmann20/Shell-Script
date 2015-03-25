@@ -72,17 +72,9 @@ lj() {
 }
 
 #-- C/C++
-# std=c99 for EECS 370
 # std=c11 for normal
-
-# Compile and run a single c file
 c() {
-	#if [ "$2" = "err" ]; then
-	#	flags="-Wall -Wextra"
-	#fi
-
 	file=$1
-	#rm $file
 	gcc -std=c99 -lm -fdiagnostics-color -Wall -Wextra ${file}.c -o $file
 
 	if [ "$2" ]; then
@@ -214,6 +206,7 @@ sp() {
 alias lca='~/git/eecs370/lc2k/bin/assemble'
 alias lcs='~/git/eecs370/lc2k/bin/simulate'
 alias lcf='~/git/eecs370/lc2k/bin/fsm'
+alias lcp='~/git/eecs370/lc2k/bin/pipeline'
 
 #---------- Startup commands ----------#
 cd ~/git
