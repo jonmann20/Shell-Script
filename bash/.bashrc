@@ -207,6 +207,7 @@ alias lca='~/git/eecs370/lc2k/bin/assemble'
 alias lcs='~/git/eecs370/lc2k/bin/simulate'
 alias lcf='~/git/eecs370/lc2k/bin/fsm'
 alias lcp='~/git/eecs370/lc2k/bin/pipeline'
+alias lcc='~/git/eecs370/lc2k/bin/cachesim'
 
 #---------- Startup commands ----------#
 cd ~/git
