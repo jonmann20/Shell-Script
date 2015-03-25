@@ -2,6 +2,7 @@
 LIGHT_GRAY="\[\033[0;37m\]"
 DARK_GRAY="\[\033[1;30m\]"
 CYAN="\[\033[0;36m\]"
+RED="\033[0;31m"
 #YELLOW="\[\033[1;33m\]"
 #LIGHT_CYAN="\[\033[1;36m\]"
 
@@ -189,17 +190,24 @@ acpp() {
 #-- Sublime
 # List sublime projects
 lsp() {
+	echo "Available Sublime Projects:"
+
 	for file in ~/Documents/Sublime/*.sublime-project; do
 		filename=$(basename "$file")
 		filename="${filename%.*}"
-		echo "$filename"
+		echo -e "\t$filename"
 	done
 }
 
-# Open/create a sublime project
+# Open a sublime project
 sp() {
-	file=$1
-	subl --project ~/Documents/Sublime/${file}.sublime-project
+	if [ ! -f $1 ]; then
+		echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
+		lsp
+	else
+		file=$1
+		subl --project ~/Documents/Sublime/${file}.sublime-project
+	fi
 }
 
 #-- EECS 370
