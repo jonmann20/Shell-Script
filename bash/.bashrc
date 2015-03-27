@@ -29,7 +29,7 @@ rebash() {
 	clr
 }
 
-alias bashrc='subl ~/.Shell-Script/bash/.bashrc'
+alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
 
 vivify() {
 	sudo apt-get update --yes
@@ -201,12 +201,14 @@ lsp() {
 
 # Open a sublime project
 sp() {
-	if [ ! -f $1 ]; then
+  fname=$1
+  file=~/Documents/Sublime/${fname}.sublime-project
+
+	if [ ! -f $file ]; then
 		echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
 		lsp
-	else
-		file=$1
-		subl --project ~/Documents/Sublime/${file}.sublime-project
+	else		
+		subl --project $file
 	fi
 }
 
