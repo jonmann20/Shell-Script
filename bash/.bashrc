@@ -76,7 +76,7 @@ lj() {
 # std=c11 for normal
 c() {
 	file=$1
-	gcc -std=c99 -lm -fdiagnostics-color -Wall -Wextra ${file}.c -o $file
+	gcc -std=c99 -fdiagnostics-color -Wall -Wextra ${file}.c -lm -o $file
 
 	if [ "$2" ]; then
 		inFile=$2
