@@ -220,7 +220,6 @@ alias lcp='~/git/eecs370/lc2k/bin/pipeline'
 alias lcc='~/git/eecs370/lc2k/bin/cachesim'
 
 #---------- Startup commands ----------#
-tabs 4
 cd ~/git
 clr
 lj
