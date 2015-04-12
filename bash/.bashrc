@@ -22,6 +22,7 @@ alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
 alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
+alias trash='nautilus trash://'
 
 rebash() {
 	source ~/.bashrc
