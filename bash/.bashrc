@@ -168,6 +168,18 @@ rr.t() {
 	bundle exec rspec
 }
 
+# Run hound on file
+hound() {
+  if [ $# -eq 1 ]; then
+  	rubocop -c .hound.yml $1
+  elif [ $# -eq 2 ]; then
+  	num=$2
+    rubocop -c .hound.yml $1 | grep -A2 ":${num}" | sed '/^--$/d' | sed 's/^.*C: //'
+  else
+  	echo "usage: hound <filename> <linenumber (optional)>"
+  fi
+}
+
 #-- Git
 alias st='git status -s'
 alias ch='git checkout $1'
