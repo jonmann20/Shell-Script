@@ -81,11 +81,7 @@ lj() {
 c() {
 	file=$1
 	gcc -std=c11 -fdiagnostics-color -Wall -Wextra ${file}.c -lm -o $file
-
-	if [ "$2" ]; then
-		inFile=$2
-		./${file} ${inFile}.mc
-	fi
+	./${file}
 }
 alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
 
