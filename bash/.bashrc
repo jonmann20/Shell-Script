@@ -24,6 +24,10 @@ alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
 alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
 alias trash='nautilus trash://'
 
+md() {
+  test -e $1 || mkdir $1; cd $1;
+}
+
 rebash() {
 	source ~/.bashrc
 	cd -
@@ -74,10 +78,9 @@ lj() {
 }
 
 #-- C/C++
-# std=c11 for normal
 c() {
 	file=$1
-	gcc -std=c99 -fdiagnostics-color -Wall -Wextra ${file}.c -lm -o $file
+	gcc -std=c11 -fdiagnostics-color -Wall -Wextra ${file}.c -lm -o $file
 
 	if [ "$2" ]; then
 		inFile=$2
@@ -99,9 +102,8 @@ initC() {
 		cat >> $file <<EOF
 #include <stdio.h>
 
-int main(int argc, char* argv[]) {
+int main() {
 	printf("Hello World\n");
-	return 0;
 }
 EOF
 	fi
