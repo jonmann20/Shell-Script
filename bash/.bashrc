@@ -23,6 +23,7 @@ alias poweroff='sudo poweroff'
 alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
 alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
 alias trash='nautilus trash://'
+alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 
 md() {
   test -e $1 || mkdir $1; cd $1;
