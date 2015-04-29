@@ -9,6 +9,8 @@ RED="\033[0;31m"
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
+alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
+
 #-- System
 alias cls='clear'				# adds new lines
 alias clr='printf "\ec"'		# actually clears screen
@@ -24,6 +26,7 @@ alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
 alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
 alias trash='nautilus trash://'
 alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
+alias list_ip='/sbin/ifconfig'
 
 md() {
   test -e $1 || mkdir $1; cd $1;
@@ -34,8 +37,6 @@ rebash() {
 	cd -
 	clr
 }
-
-alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
 
 vivify() {
 	sudo apt-get update --yes
@@ -197,6 +198,11 @@ acpp() {
 	git commit -m "$@"
 	git pull
 	git push
+}
+
+gph() {
+	grunt prd
+	git push heroku
 }
 
 #-- Sublime
