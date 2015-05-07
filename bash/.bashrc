@@ -79,6 +79,31 @@ lj() {
 	echo -e "total size: $totalSize\n$buff\c"
 }
 
+#-- HTML
+initHTML() {
+	if [ "$1" ]; then
+		file=$1".html"
+	else
+		file="index.html"
+	fi
+
+	if [ -e $file ]; then
+		echo "File $file already exists"
+	else
+		cat >> $file <<EOF
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+EOF
+	fi
+}
+
 #-- C/C++
 c() {
 	file=$1
