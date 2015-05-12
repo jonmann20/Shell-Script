@@ -242,21 +242,34 @@ lsp() {
 	for file in ~/Documents/Sublime/*.sublime-project; do
 		filename=$(basename "$file")
 		filename="${filename%.*}"
-		echo -e "\t$filename"
+		echo -e "\t$filename (Documents)"
+	done
+
+	for file in ~/git/**/*.sublime-project; do
+		filename=$(basename "$file")
+		filename="${filename%.*}"
+		echo -e "\t$filename (git)"
 	done
 }
 
 # Open a sublime project
 sp() {
-  fname=$1
-  file=~/Documents/Sublime/${fname}.sublime-project
+	fname=$1
+	dfile=~/Documents/Sublime/${fname}.sublime-project
+	gfile=$(find ~/git -name "$fname".sublime-project)
 
-	if [ ! -f $file ]; then
-		echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
-		lsp
-	else		
-		subl --project $file
+	if [ ! -f $dfile ]; then
+		if [ ! -f $gfile ] || [ -z $gfile ]; then
+			echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
+			lsp
+		else
+			subl --project $gfile
+		fi
+	else
+		subl --project $dfile
 	fi
+
+	
 }
 
 #-- EECS 370
