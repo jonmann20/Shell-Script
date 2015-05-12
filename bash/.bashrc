@@ -268,8 +268,6 @@ sp() {
 	else
 		subl --project $dfile
 	fi
-
-	
 }
 
 #-- EECS 370
