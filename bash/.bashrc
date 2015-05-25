@@ -194,14 +194,14 @@ rr.t() {
 }
 
 # Run hound on file
-hound() {
+rbcop() {
 	if [ $# -eq 1 ]; then
-		rubocop -c .hound.yml $1
+		rubocop -c .rubocop.yml $1
 	elif [ $# -eq 2 ]; then
 		num=$2
-		rubocop -c .hound.yml $1 | grep -A2 ":${num}" | sed '/^--$/d' | sed 's/^.*C: //'
+		rubocop -c .rubocop.yml $1 | grep -A2 ":${num}" | sed '/^--$/d' | sed 's/^.*C: //'
 	else
-		echo "usage: hound <filename> <linenumber (optional)>"
+		echo "usage: rbcop <filename> <linenumber (optional)>"
 	fi
 }
 
@@ -263,10 +263,10 @@ sp() {
 			echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
 			lsp
 		else
-			subl --project $gfile
+			subl -a --project $gfile
 		fi
 	else
-		subl --project $dfile
+		subl -a --project $dfile
 	fi
 }
 
