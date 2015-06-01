@@ -9,8 +9,6 @@ RED="\033[0;31m"
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
 #---------- Aliases/Functions ----------#
-alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
-
 #-- System
 alias cls='clear'				# adds new lines
 alias clr='printf "\ec"'		# actually clears screen
@@ -23,7 +21,7 @@ alias sleep='sudo pm-suspend'
 alias reboot='sudo reboot'
 alias poweroff='sudo poweroff'
 alias dog='pygmentize -g $@'	# sudo apt-get install python-pygments
-alias ebashrc='subl ~/.Shell-Script/bash/.bashrc'
+alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
 alias trash='nautilus trash://'
 alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 alias list_ip='/sbin/ifconfig'
@@ -255,6 +253,11 @@ lsp() {
 # Open a sublime project
 sp() {
 	fname=$1
+
+	if [ "${fname: -1}" == "/" ]; then
+		fname="${fname::-1}"
+	fi
+
 	dfile=~/Documents/Sublime/${fname}.sublime-project
 	gfile=$(find ~/git -name "$fname".sublime-project)
 
