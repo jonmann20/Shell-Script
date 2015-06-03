@@ -207,6 +207,28 @@ rs() {
 	LOG_LVL_WARN=true rails s
 }
 
+rakedb() {
+	case $1 in
+	    1)
+			rake db:drop
+			;;
+	    2)
+	        rake db:drop
+	        rake db:create
+	        ;;
+	    3)
+	        rake db:drop
+	        rake db:create
+	        rake db:migrate
+	        ;;
+	    *)
+	        rake db:drop
+	        rake db:create
+	        rake db:migrate
+	        rake db:seed
+	esac
+}
+
 #-- Git
 alias st='git status -s'
 alias ch='git checkout $1'
