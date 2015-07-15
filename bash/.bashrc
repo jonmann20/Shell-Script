@@ -249,6 +249,11 @@ acpp() {
 	git push
 }
 
+gps() {
+	grunt prd
+	git push
+}
+
 gph() {
 	grunt prd
 	git push heroku
@@ -288,10 +293,10 @@ sp() {
 			echo -e "${RED}This project does not exist\n${LIGHT_GRAY}"
 			lsp
 		else
-			subl -a --project $gfile
+			subl -n --project $gfile
 		fi
 	else
-		subl -a --project $dfile
+		subl -n --project $dfile
 	fi
 }
 
