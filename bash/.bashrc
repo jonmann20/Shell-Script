@@ -253,7 +253,6 @@ acpp() {
 }
 
 gph() {
-	grunt prd
 	git push heroku
 }
 
