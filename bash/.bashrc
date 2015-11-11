@@ -51,8 +51,15 @@ lj() {
 
 	buff=''
 
-	# sort by last modified (reversed)
-	for file in $(ls -tr)
+	# last modified [-t], reverse [-r]
+
+	if [ "$1" == "size" ]; then
+		sort_by=$(du -sh * | sort -h | cut -f2)
+	else
+		sort_by=$(ls -tr)
+	fi
+
+	for file in $sort_by
 	do
 		if [ -d $file ]			# directory
 		then
@@ -75,6 +82,14 @@ lj() {
 	done
 	totalSize=$(du -sh . | cut -f1)
 	echo -e "total size: $totalSize\n$buff\c"
+}
+
+ljs() {
+	lj "size"
+}
+
+ljt() {
+	lj "time"
 }
 
 #-- HTML
@@ -300,4 +315,4 @@ sp() {
 #---------- Startup commands ----------#
 cd ~/git
 clr
-lj
+ljt
