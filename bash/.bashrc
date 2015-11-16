@@ -76,12 +76,18 @@ lj() {
 		lm5=$(date -d "$(stat -c '%z' $file)" +"%P")
 
 		size=$(du -sh $file | cut -f1)
+		lastChar="${size: -1}"
+		size="${size::-1}"
+		units="${lastChar}B"
 
-		printf -v result "%-34b %-3s %2s %-6s %5s %-5s %6s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size
+		printf -v result "%-35b %-3s %2s %-6s %5s %-5s %3s %2s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size $units
 		buff+=$result
 	done
 	totalSize=$(du -sh . | cut -f1)
-	echo -e "total size: $totalSize\n$buff\c"
+	totalSizeLastChar="${totalSize: -1}"
+	totalSize="${totalSize::-1}"
+	units="${totalSizeLastChar}B"
+	echo -e "total size: $totalSize $units\n$buff\c"
 }
 
 ljs() {
