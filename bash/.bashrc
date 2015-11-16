@@ -51,6 +51,7 @@ lj() {
 
 	buff=''
 
+	#TODO: allow filenames with spaces
 	# last modified [-t], reverse [-r]
 
 	if [ "$1" == "size" ]; then
