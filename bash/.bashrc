@@ -52,6 +52,7 @@ lj() {
 	buff=''
 
 	#TODO: allow filenames with spaces
+	#TODO: show percentage of folder (use `calc`)
 	# last modified [-t], reverse [-r]
 
 	if [ "$1" == "size" ]; then
