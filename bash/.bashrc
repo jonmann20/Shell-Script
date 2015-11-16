@@ -255,6 +255,9 @@ rakedb() {
 	esac
 }
 
+#-- Node
+alias rsn='killall -9 node'
+
 #-- Git
 alias st='git status -s'
 alias ch='git checkout $1'
