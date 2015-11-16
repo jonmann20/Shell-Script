@@ -255,8 +255,11 @@ rakedb() {
 	esac
 }
 
-#-- Node
-alias rsn='killall -9 node'
+#-- Node.js
+kns() {
+	killall -9 node
+	echo 'finished'
+}
 
 #-- Git
 alias st='git status -s'
