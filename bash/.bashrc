@@ -281,6 +281,10 @@ acpp() {
 	git push
 }
 
+gphd() {
+	git push heroku-dev
+}
+
 gph() {
 	git push heroku
 }
