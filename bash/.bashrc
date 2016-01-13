@@ -25,6 +25,8 @@ alias bashrc='subl -n ~/.Shell-Script/bash/.bashrc'
 alias trash='nautilus trash://'
 alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 alias list_ip='/sbin/ifconfig'
+alias dusage='sudo du -a / | sort -n -r | head -n 20'
+
 
 md() {
   test -e $1 || mkdir $1; cd $1;
