@@ -335,4 +335,4 @@ sp() {
 #---------- Startup commands ----------#
 cd ~/git
 clr
-ljt
+ls -1tr
