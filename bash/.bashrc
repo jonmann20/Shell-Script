@@ -1,10 +1,12 @@
 #---------- Prompt ----------#
-LIGHT_GRAY="\[\033[0;37m\]"
 DARK_GRAY="\[\033[1;30m\]"
 CYAN="\[\033[0;36m\]"
-RED="\033[0;31m"
-#YELLOW="\[\033[1;33m\]"
 #LIGHT_CYAN="\[\033[1;36m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
 
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
 
@@ -72,19 +74,31 @@ lj() {
 			filename="${LIGHT_GRAY}$file${RESET}"
 		fi
 
+		# last modified
 		# NOTE: was adding an newline when combined
-		last_modified=$(date -d "$(stat -c '%z' $file)" +"%a")
-		lm2=$(date -d "$(stat -c '%z' $file)" +"%e")
-		lm3=$(date -d "$(stat -c '%z' $file)" +"%b")
-		lm4=$(date -d "$(stat -c '%z' $file)" +"%l:%M")
-		lm5=$(date -d "$(stat -c '%z' $file)" +"%P")
+		weekday=$(date -d "$(stat -c '%z' $file)" +"%a")
+		day=$(date -d "$(stat -c '%z' $file)" +"%e")
+		month=$(date -d "$(stat -c '%z' $file)" +"%b")
+		time1=$(date -d "$(stat -c '%z' $file)" +"%l:%M")
+		period=$(date -d "$(stat -c '%z' $file)" +"%P")
 
 		size=$(du -sh $file | cut -f1)
 		lastChar="${size: -1}"
 		size="${size::-1}"
+
+		if [ "$lastChar" == "K" ]; then
+			ucolor="${GREEN}"
+		elif [ "$lastChar" == "M" ]; then
+			ucolor="${YELLOW}"
+		elif [ "$lastChar" == "G" ]; then
+			ucolor="${RED}"
+		else
+			ucolor="${LIGHT_GRAY}"
+		fi
+
 		units="${lastChar}B"
 
-		printf -v result "%-35b %-3s %2s %-6s %5s %-5s %3s %2s\n" $filename $last_modified $lm2 $lm3 $lm4 $lm5 $size $units
+		printf -v result "%-35b %-3s %2s %-6s %5s %-5s %3s %2s\n" $filename $weekday $day $month $time1 $period $size $ucolor$units${RESET}
 		buff+=$result
 	done
 	totalSize=$(du -sh . | cut -f1)
