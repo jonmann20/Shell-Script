@@ -197,7 +197,7 @@ EOF
 #-- Ruby on Rails
 # List Ruby on Rails commands
 rr() {
-	echo "All commands use bundle exec"
+	echo "All commands use bundle exec bin/"
 	echo "d: database - rake db:drop, create, migrate, seed"
 	echo "s: server - rails server"
 	echo "c: console - rails console"
@@ -206,31 +206,31 @@ rr() {
 
 rr.d() {
 	echo "Dropping db"
-	bundle exec rake db:drop
+	bundle exec bin/rake db:drop
 
 	echo "Creating db"
-	bundle exec rake db:create
+	bundle exec bin/rake db:create
 
 	echo "Migrating db"
-	bundle exec rake db:migrate
+	bundle exec bin/rake db:migrate
 
 	echo "Seeding db"
-	bundle exec rake db:seed
+	bundle exec bin/rake db:seed
 }
 
 rr.s() {
 	echo "Running web server"
-	bundle exec rails server
+	bundle exec bin/rails server
 }
 
 rr.c() {
 	echo "Running rails console"
-	bundle exec rails console
+	bundle exec bin/rails console
 }
 
 rr.t() {
 	echo "Running tests"
-	bundle exec rspec
+	bundle exec bin/rspec
 }
 
 # Run hound on file
