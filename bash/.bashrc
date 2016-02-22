@@ -29,7 +29,6 @@ alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 alias list_ip='/sbin/ifconfig'
 alias dusage='sudo du -a / | sort -n -r | head -n 20'
 
-
 md() {
   test -e $1 || mkdir $1; cd $1;
 }
@@ -283,6 +282,7 @@ alias ch='git checkout $1'
 alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias mend='git commit --amend -m "$@"'
 alias ac='git add -A; git commit -m "$@"'
+alias prb='git pull --rebase'
 
 acp() {
 	git add -A
@@ -348,5 +348,5 @@ sp() {
 
 #---------- Startup commands ----------#
 cd ~/git
-clr
+cls
 ls -1tr
