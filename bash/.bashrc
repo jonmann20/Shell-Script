@@ -9,6 +9,7 @@ GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 
 PS1="${CYAN}\w${DARK_GRAY}\$(__git_ps1)${CYAN}\n» ${LIGHT_GRAY}"
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 #---------- Aliases/Functions ----------#
 #-- System
@@ -283,6 +284,7 @@ alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(b
 alias mend='git commit --amend -m "$@"'
 alias ac='git add -A; git commit -m "$@"'
 alias prb='git pull --rebase'
+alias gitk='gitk --all'
 
 acp() {
 	git add -A
