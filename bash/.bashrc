@@ -284,7 +284,7 @@ alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(b
 alias mend='git commit --amend -m "$@"'
 alias ac='git add -A; git commit -m "$@"'
 alias prb='git pull --rebase'
-alias gitk='gitk --all'
+alias gitk='gitk --all &'
 
 acp() {
 	git add -A
