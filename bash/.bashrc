@@ -353,6 +353,6 @@ sp() {
 }
 
 #---------- Startup commands ----------#
-cd ~/git
+cd ~/workspace
 cls
 ls -1tr
