@@ -237,6 +237,8 @@ rr.t() {
 	bundle exec bin/rspec
 }
 
+alias bspec='bin/rspec'
+
 # Run hound on file
 rbcop() {
 	if [ $# -eq 1 ]; then
