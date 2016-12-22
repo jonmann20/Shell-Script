@@ -284,6 +284,7 @@ kns() {
 }
 
 #-- Git
+alias br='git branch'
 alias st='git status -s'
 alias ch='git checkout $1'
 alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
