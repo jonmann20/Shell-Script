@@ -3,13 +3,13 @@ Command Prompt
 
 Installation
 ------------
-1. Copy doskey.cmd into <code>C:/</code>
+1. Copy cmdrc.cmd into `C:/`
 
 Setup Command Prompt desktop shortcut
 -------------------------------------
-1. Navigate to <code>C:\Windows\System32</code>
+1. Navigate to `C:\Windows\System32`
 2. Create shortcut
 	* Target:
-		* <code>%windir%\system32\cmd.exe /K C:\doskey.cmd</code>
+		* `%windir%\system32\cmd.exe /K C:\doskey.cmd`
 	* Start in:
-		* <code>C:\git</code>
+		* `C:\git`
