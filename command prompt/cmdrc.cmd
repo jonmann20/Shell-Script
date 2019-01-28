@@ -27,7 +27,7 @@ dir
 
 :: Prompt
 ::set prompt=$p$_$g
-set prompt=$E[1;32m$p$_$g$E[0m
+set prompt=$E[1;32m$p$_$g$E[0m 
 
 ::git rev-parse --abbrev-ref HEAD > C:\workspace\gitbranch.txt
 ::set /p branch=<C:\workspace\gitbranch.txt
