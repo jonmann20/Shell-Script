@@ -1,12 +1,17 @@
 :: Install this file to C:\
 
+:: Usefull Links
+::   https://www.robvanderwoude.com/ansi.php#AnsiColor
+
 @echo off
+::setlocal enableextensions
 
 :: Aliases
 DOSKEY ls = dir /B
-DOSKEY subl = "C:\Program Files\Sublime Text 3\sublime_text.exe"
+DOSKEY which = where $*
 DOSKEY .. = cd ..
 DOSKEY ... = cd ..\..
+DOSKEY subl = "C:\Program Files\Sublime Text 3\sublime_text.exe"
 
 :: git
 DOSKEY br = git branch
@@ -21,10 +26,12 @@ cd C:\workspace
 dir
 
 :: Prompt
-set prompt=$E[7;32;47m$p$_$g$E[0m
+::set prompt=$p$_$g
+set prompt=$E[1;32m$p$_$g$E[0m
 
 ::git rev-parse --abbrev-ref HEAD > C:\workspace\gitbranch.txt
 ::set /p branch=<C:\workspace\gitbranch.txt
+::set prompt=$p $E[1;32m%branch%$E[0m $_$g
 
-::set prompt=$p $E[7;32;47m%branch%$E[0m $_$g
-::DOSKEY cd = cd $* $T set prompt=$p
+::for /f "tokens=*" %%x in ('ver') do set branc=%%x
+::echo %branc%
