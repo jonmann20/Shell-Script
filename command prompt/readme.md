@@ -10,4 +10,4 @@ Setup Command Prompt desktop shortcut (doskey)
 1. Navigate to `C:\Windows\System32`
 2. Create shortcut
 	* Target:
-		* `%windir%\system32\cmd.exe /K C:\doskey.cmd`
+		* `%windir%\system32\cmd.exe /K C:\cmdrc.cmd`
