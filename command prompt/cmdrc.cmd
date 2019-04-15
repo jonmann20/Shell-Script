@@ -8,7 +8,9 @@
 
 :: Aliases
 DOSKEY ls = dir /B
+DOSKEY ll = dir
 DOSKEY which = where $*
+DOSKEY cat = type $*
 DOSKEY .. = cd ..
 DOSKEY ... = cd ..\..
 DOSKEY subl = "C:\Program Files\Sublime Text 3\sublime_text.exe"
