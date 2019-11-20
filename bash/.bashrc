@@ -355,6 +355,43 @@ sp() {
 	fi
 }
 
+# Vars
+export HISTTIMEFORMAT="%a %h %d, %r » "
+
+# Project Specific
+tblue() {
+	pg11
+	tblue_webpack
+	tblue_sidekiq
+	tblue_s
+	tblue_c
+	cd ~/workspace/disrupt/transmagic-backend
+}
+
+pg11() {
+	pg_lsclusters
+	sudo service postgresql stop
+	sudo pkill postgres
+	sudo systemctl start postgresql@11-main
+	pg_lsclusters
+}
+
+tblue_webpack() {
+	gnome-terminal --tab --title="TBlue Webpack Dev Server" -- bash -c "cd ~/workspace/disrupt/transmagic-backend && bin/webpack-dev-server"
+}
+
+tblue_sidekiq() {
+	gnome-terminal --tab --title="TBlue Sidekiq" -- bash -c "cd ~/workspace/disrupt/transmagic-backend && bundle exec sidekiq"
+}
+
+tblue_s() {
+	gnome-terminal --tab --title="TBlue Rails Server" -- bash -c "cd ~/workspace/disrupt/transmagic-backend && rails s"
+}
+
+tblue_c() {
+	gnome-terminal --tab --title="TBlue Rails Console" -- bash -c "cd ~/workspace/disrupt/transmagic-backend && rails c"
+}
+
 #---------- Startup commands ----------#
 cd ~/workspace
 cls
