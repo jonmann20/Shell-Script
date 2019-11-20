@@ -7,7 +7,7 @@ Install
 -------
 
 ```
-git clone https://github.com/jonmann20/Shell-Script.git ~/.Shell-Script &&
-sed -i '$ a\source ~/.Shell-Script/bash/.bashrc' ~/.bashrc &&
+git clone https://github.com/jonmann20/Shell-Script.git ~/workspace/Shell-Script &&
+sed -i '$ a\source ~/workspace/Shell-Script/bash/.bashrc' ~/.bashrc &&
 source ~/.bashrc
 ```
