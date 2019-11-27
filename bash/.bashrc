@@ -28,6 +28,7 @@ alias trash='nautilus trash://'
 alias listppa='grep ^ /etc/apt/sources.list /etc/apt/sources.list.d/*'
 alias list_ip='/sbin/ifconfig'
 alias dusage='sudo du -a / | sort -n -r | head -n 20'
+alias dc='docker-compose'
 
 dog() {
 	# sudo apt-get install python-pygments
