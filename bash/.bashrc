@@ -287,12 +287,13 @@ kns() {
 #-- Git
 alias br='git branch'
 alias st='git status -s'
-alias ch='git checkout $1'
+alias sw='git switch $1'
+alias ch='sw'
 alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias mend='git commit --amend -m "$@"'
-alias ac='git add -A; git commit -m "$@"'
 alias prb='git pull --rebase'
 alias gitk='gitk --all &'
+alias ac='git add -A; git commit -m "$@"'
 
 acp() {
 	git add -A
@@ -300,61 +301,6 @@ acp() {
 	git push
 }
 
-acpp() {
-	git add -A
-	git commit -m "$@"
-	git pull
-	git push
-}
-
-gphd() {
-	git push heroku-dev
-}
-
-gph() {
-	git push heroku
-}
-
-#-- Sublime
-# List sublime projects
-lsp() {
-	echo "Available Sublime Projects:"
-
-	for file in ~/Documents/Sublime/*.sublime-project; do
-		filename=$(basename "$file")
-		filename="${filename%.*}"
-		echo -e "\t$filename (Documents)"
-	done
-
-	for file in ~/git/**/*.sublime-project; do
-		filename=$(basename "$file")
-		filename="${filename%.*}"
-		echo -e "\t$filename (git)"
-	done
-}
-
-# Open a sublime project
-sp() {
-	fname=$1
-
-	if [ "${fname: -1}" == "/" ]; then
-		fname="${fname::-1}"
-	fi
-
-	dfile=~/Documents/Sublime/${fname}.sublime-project
-	gfile=$(find ~/git -name "$fname".sublime-project)
-
-	if [ ! -f $dfile ]; then
-		if [ ! -f $gfile ] || [ -z $gfile ]; then
-			echo -e "${RED}The project \`${fname}\` does not exist${LIGHT_GRAY}"
-			lsp
-		else
-			subl -n --project $gfile
-		fi
-	else
-		subl -n --project $dfile
-	fi
-}
 
 # Vars
 export HISTTIMEFORMAT="%a %h %d, %r » "
