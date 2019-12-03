@@ -13,8 +13,8 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 #---------- Aliases/Functions ----------#
 #-- System
-alias cls='clear'				# adds new lines
-alias clr='printf "\ec"'		# actually clears screen
+alias cls='clear'					# adds new lines
+alias clr='printf "\ec"'	# actually clears screen
 alias .='pwd'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -300,7 +300,6 @@ acp() {
 	git commit -m "$@"
 	git push
 }
-
 
 # Vars
 export HISTTIMEFORMAT="%a %h %d, %r » "
