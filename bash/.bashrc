@@ -297,6 +297,7 @@ alias ch='sw'
 alias lg='git log --graph --pretty=format:"%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 alias mend='git commit --amend -m "$@"'
 alias prb='git pull --rebase'
+alias prs='git pull --recurse-submodules'
 alias gitk='gitk --all &'
 alias ac='git add -A; git commit -m "$@"'
 
