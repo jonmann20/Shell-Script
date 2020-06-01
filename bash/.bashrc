@@ -30,10 +30,11 @@ alias list_ip='/sbin/ifconfig'
 alias dusage='sudo du -a / | sort -n -r | head -n 20'
 alias workspace='cd ~/workspace'
 
-# Docker/Docker Compose
+# Docker/Docker Compose/Kubernetes
 alias d=docker
 alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}"'
 alias dc=docker-compose
+alias k=kubectl
 
 dog() {
 	# sudo apt install python-pygments
