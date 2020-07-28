@@ -36,6 +36,12 @@ alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}
 alias dc=docker-compose
 alias k=kubectl
 
+dbash() {
+	# e.g. dbash platform_external_web_api
+	# --> gepetto_platform_external_web_api_1
+	d exec -it "gepetto_$1_1" /bin/bash
+}
+
 dog() {
 	# sudo apt install python-pygments
 	pygmentize $1 | perl -e 'print ++$i." $_" for <>'
