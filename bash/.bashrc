@@ -32,11 +32,31 @@ alias workspace='cd ~/workspace'
 
 # Docker/Docker Compose/Kubernetes
 alias d=docker
-alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.ID}}\t{{.Image}}"'
+#\t{{.ID}} \t{{.Ports}}
+alias dps='d ps --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"'
 alias dc=docker-compose
 alias k=kubectl
 
-dbash() {
+update_dc() {
+	dc -v
+	DESTINATION=/usr/local/bin/docker-compose
+	VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+	sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+	sudo chmod 755 $DESTINATION
+	dc -v
+}
+
+dshl() {
+	d ps -l --format "table {{.Names}}\t{{.Status}}\t{{.Image}}\t{{.Ports}}"
+	d exec -it $(d ps -lq) /bin/bash
+}
+
+dsh() {
+	# e.g. dsh 34bede9574b2
+	d exec -it $1 /bin/bash
+}
+
+dshg() {
 	# e.g. dbash platform_external_web_api
 	# --> gepetto_platform_external_web_api_1
 	d exec -it "gepetto_$1_1" /bin/bash
