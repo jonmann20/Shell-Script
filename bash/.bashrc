@@ -153,84 +153,6 @@ ljt() {
 	lj "time"
 }
 
-#-- HTML
-initHTML() {
-	if [ "$1" ]; then
-		file=$1".html"
-	else
-		file="index.html"
-	fi
-
-	if [ -e $file ]; then
-		echo "File $file already exists"
-	else
-		cat >> $file <<EOF
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
-</body>
-</html>
-
-EOF
-	fi
-}
-
-#-- C/C++
-c() {
-	file=$1
-	gcc -std=c11 -fdiagnostics-color -Wall -Wextra ${file}.c -lm -o $file
-	./${file}
-}
-alias cc='g++ -std=c++14 -fdiagnostics-color -Wall -Wextra $@'
-
-initC() {
-	if [ "$1" ]; then
-		file=$1".c"
-	else
-		file="main.c"
-	fi
-
-	if [ -e $file ]; then
-		echo "File $file already exists"
-	else
-		cat >> $file <<EOF
-#include <stdio.h>
-
-int main() {
-	printf("Hello World\n");
-}
-
-EOF
-	fi
-}
-
-initCpp() {
-	if [ "$1" ]; then
-		file=$1".cpp"
-	else
-		file="main.cpp"
-	fi
-
-	if [ -e $file ]; then
-		echo "File $file already exists"
-	else
-		cat >> $file <<EOF
-#include <iostream>
-using namespace std;
-
-int main(int argc, char* argv[]) {
-	cout << "Hello World" << endl;
-	return 0;
-}
-
-EOF
-	fi
-}
-
 #-- Ruby on Rails
 # List Ruby on Rails commands
 rr() {
@@ -314,6 +236,14 @@ rakedb() {
 kns() {
 	killall -9 node
 	echo 'finished'
+}
+
+# npm i -g check-outdated
+outdated() {
+	check-outdated --columns name,current,wanted,latest
+}
+outdatedc() {
+	check-outdated --columns name,current,latest,changes
 }
 
 #-- Git
