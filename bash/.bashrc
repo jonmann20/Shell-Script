@@ -32,18 +32,18 @@ alias workspace='cd ~/workspace'
 
 # Docker/Docker Compose/Kubernetes
 alias d=docker
+alias dc='docker compose'
+alias k=kubectl
 #\t{{.ID}} \t{{.Ports}}
 alias dps='d ps --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"'
-alias dc=docker-compose
-alias k=kubectl
 
 update_dc() {
-	dc -v
-	DESTINATION=/usr/local/bin/docker-compose
+	dc version
+	DESTINATION=~/.docker/cli-plugins/docker-compose
 	VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 	sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
 	sudo chmod 755 $DESTINATION
-	dc -v
+	dc version
 }
 
 dshl() {
@@ -52,8 +52,17 @@ dshl() {
 }
 
 dsh() {
-	# e.g. dsh 34bede9574b2
-	d exec -it $1 /bin/bash
+  if [ "$1" == "api" ]; then
+      d exec -it gepetto_platform_external_web_api_1 /bin/bash
+  elif [ "$1" == "ui" ]; then
+  	d exec -it gepetto_platform_external_web_ui_1 /bin/bash
+  elif [ "$1" == "gql" ]; then
+  	d exec -it gepetto_platform_external_graphql_1 /bin/bash
+	elif [ "$1" == "bootstrap" ]; then
+		d exec -it gepetto_bootstrap_1 /bin/bash
+  else
+      d exec -it $1 /bin/bash
+  fi
 }
 
 dshg() {
