@@ -35,7 +35,8 @@ alias d=docker
 alias dc='docker compose'
 alias k=kubectl
 #\t{{.ID}} \t{{.Ports}}
-alias dps='d ps --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"'
+alias dps='d ps --format "table {{.Names}}\t{{.Status}}"'
+alias dpsi='d ps --format "table {{.Names}}\t{{.Status}}\t{{.Image}}"'
 
 update_dc() {
 	dc version
