@@ -42,7 +42,8 @@ update_dc() {
 	dc version
 	DESTINATION=~/.docker/cli-plugins/docker-compose
 	VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
-	sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-linux-amd64 -o $DESTINATION
+	echo "Downloading $VERSION"
+	sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-linux-x86_64 -o $DESTINATION
 	sudo chmod 755 $DESTINATION
 	dc version
 }
