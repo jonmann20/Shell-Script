@@ -298,6 +298,7 @@ acp() {
 
 # Vars
 export HISTTIMEFORMAT="%a %h %d, %r » "
+export HOMEBREW_NO_UPDATE_REPORT_NEW=true		# prevents brew update from outputting new casks
 
 #---------- Startup commands ----------#
 cd ~/workspace
