@@ -301,6 +301,7 @@ export HISTTIMEFORMAT="%a %h %d, %r » "
 export HOMEBREW_NO_UPDATE_REPORT_NEW=true		# prevents brew update from outputting new casks
 
 #---------- Startup commands ----------#
-cd ~/workspace
-cls
-ls -1tr
+# NOTE: add these to your local ~/.zshrc to specific dir you want loaded on init.
+# cd ~/workspace
+# cls
+# ls -1tr
