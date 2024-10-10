@@ -30,6 +30,9 @@ alias list_ip='/sbin/ifconfig'
 alias dusage='sudo du -a / | sort -n -r | head -n 20'
 alias workspace='cd ~/workspace'
 
+# Gcloud cli
+alias g=gcloud
+
 # Docker/Docker Compose/Kubernetes
 alias d=docker
 alias dc='docker compose'
